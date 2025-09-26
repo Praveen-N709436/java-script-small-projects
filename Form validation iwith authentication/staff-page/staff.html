@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Page</title>
+    <link rel="stylesheet" href="staff.css">
+</head>
+<body>
+    <h2>Welcome Staff</h2>
+    <p id="staffInfo"></p>
+
+    <script>
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        document.getElementById('staffInfo').innerText = `Hello ${currentUser.name}, your role is ${currentUser.role}`;
+    </script>
+</body>
+</html>

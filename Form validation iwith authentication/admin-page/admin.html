@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <h2>Admin Dashboard</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody id="userTable">
+        </tbody>
+    </table>
+    <script>
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        let staffUsers = users.filter(u => u.role === 'staff');
+        let tbody = document.getElementById('userTable');
+        staffUsers.forEach(u => {
+            let row = `<tr><td>${u.name}</td><td>${u.email}</td><td>${u.role}</td></tr>`;
+            tbody.innerHTML += row;
+        });
+    </script>
+</body>
+</html>
